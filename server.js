@@ -111,11 +111,11 @@ app.post('/register',(rep,res)=>{
         console.log(firstname,lastname,email)
         if(res.statusCode==200){
             //res.sendFile(__dirname+"/login.html")
-            res.redirect('http://localhost:8080/login')
+            res.redirect('https://blooming-cove-95467.herokuapp.com/login')
         }
         else{
             //res.sendFile(__dirname+"/404error.html")
-            res.redirect('http://localhost:8080/404')
+            res.redirect('https://blooming-cove-95467.herokuapp.com/404')
         }
     }
      })
@@ -146,19 +146,19 @@ app.post('/login',(rep,res)=>{
     Member.find({'email':email},['password'],function(err,docs){
         if(err){
             console.log(err)
-            res.redirect('http://localhost:8080/404')
+            res.redirect('https://blooming-cove-95467.herokuapp.com/404')
         }
         const hash=docs[0].password
         //console.log(docs[0].password)
         bcrypt.compare(password, hash).then(function(result) {
             if (result == true){
-                res.sendFile(__dirname+"/login.html")
+                res.redirect('https://code.visualstudio.com/docs/editor/versioncontrol')
                 console.log("login success!")
             }
             else{
                 console.log("Hash is "+hash)
                 console.log("Password is "+password)
-                res.redirect('http://localhost:8080/404')
+                res.redirect('https://blooming-cove-95467.herokuapp.com/404')
             }
         });
     })
